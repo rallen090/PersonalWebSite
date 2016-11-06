@@ -19,6 +19,7 @@ namespace Web.Controllers
 		}
 
 		[HttpPost, Route("terminal/command")]
+		[Throttle(Name = "CommandThrottle", Milliseconds = 50)]
 		public JsonResult Command(string inputJson)
 		{
 			var input = JsonConvert.DeserializeObject<UserInput>(inputJson);
@@ -28,6 +29,7 @@ namespace Web.Controllers
 		}
 
 		[HttpPost, Route("terminal/tab/complete")]
+		[Throttle(Name = "CommandThrottle", Milliseconds = 50)]
 		public JsonResult TabComplete(string inputJson)
 		{
 			var input = JsonConvert.DeserializeObject<TabCompleteInput>(inputJson);
