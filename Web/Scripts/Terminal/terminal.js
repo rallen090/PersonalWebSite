@@ -58,6 +58,11 @@ var processCommandResult = function(commandText, data, ignoreHeader) {
 	// remove the old input
 	$(".input-section:not(:last)").remove();
 
+	// run any JS sent to us
+	if (data.JavaScriptCode) {
+		eval(data.JavaScriptCode);
+	}
+
 	// reset request flag
 	waitingForResponse = false;
 

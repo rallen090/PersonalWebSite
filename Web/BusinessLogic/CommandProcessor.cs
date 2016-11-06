@@ -301,6 +301,7 @@ namespace Web
 		}
 		public Uri RedirectUrl { get; set; }
 		public Uri PromptResponsePostUrl { get; set; }
+		public string JavaScriptCode { get; set; }
 		public object Metadata { get; set; }
 	}
 
