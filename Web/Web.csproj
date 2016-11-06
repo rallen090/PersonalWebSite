@@ -163,6 +163,7 @@
     <Compile Include="BusinessLogic\CommandProcessor.cs" />
     <Compile Include="BusinessLogic\DirectoryManager.cs" />
     <Compile Include="BusinessLogic\FileExecutor.cs" />
+    <Compile Include="BusinessLogic\JavaScriptCoder.cs" />
     <Compile Include="BusinessLogic\PromptAnswers.cs" />
     <Compile Include="BusinessLogic\ThrottleHttpTrafficAttribute.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -182,6 +183,7 @@
     <Content Include="Content\Images\favicon-16x16.png" />
     <Content Include="Content\Images\favicon-32x32.png" />
     <Content Include="Content\Images\favicon.ico" />
+    <Content Include="Content\Audio\roll.wav" />
     <Content Include="Content\terminal.css" />
     <Content Include="favicon.ico" />
     <Content Include="FileSystem\fun\brotherhood\scroll.sh" />
@@ -203,6 +205,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="FileSystem\fun\portal\cake.exe" />
+    <Content Include="FileSystem\fun\peppy\roll.sh" />
     <None Include="Properties\PublishProfiles\RyanAllenSandbox.pubxml" />
     <None Include="Scripts\lib\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\lib\jquery-1.10.2.js" />
