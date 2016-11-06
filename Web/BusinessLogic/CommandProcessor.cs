@@ -174,6 +174,13 @@ namespace Web
 
 			// trim the end slash (if there) on dir since both are allowed in shell commands but we key without it
 			var trimmedDirectory = directory?.TrimEnd('/');
+
+			// special case recursion folder and remain in the same folder
+			if (currentPath.Contains("recursion") && trimmedDirectory == "recursion")
+			{
+				return new CommandResult { NewPath = currentPath };
+			}
+
 			DirectoryInfo directoryInfo;
 			if (string.IsNullOrWhiteSpace(directory) || !this._directoryManager.TryChangeDirectory(currentPath, trimmedDirectory, out directoryInfo))
 			{

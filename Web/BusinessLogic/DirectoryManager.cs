@@ -26,7 +26,6 @@ namespace Web
 				throw new Exception($"Cannot locate the file system at {root}");
 			}
 
-			var pathChars = fileSystemDirectory.ToCharArray();
 			var directories = Directory.EnumerateDirectories(fileSystemDirectory, "*", SearchOption.AllDirectories)
 				.Select(d => new DirectoryInfo
 				{

@@ -163,6 +163,7 @@
     <Compile Include="BusinessLogic\CommandProcessor.cs" />
     <Compile Include="BusinessLogic\DirectoryManager.cs" />
     <Compile Include="BusinessLogic\FileExecutor.cs" />
+    <Compile Include="BusinessLogic\PromptAnswers.cs" />
     <Compile Include="BusinessLogic\ThrottleHttpTrafficAttribute.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TerminalController.cs" />
@@ -184,6 +185,7 @@
     <Content Include="Content\terminal.css" />
     <Content Include="favicon.ico" />
     <Content Include="FileSystem\fun\brotherhood\scroll.sh" />
+    <Content Include="FileSystem\fun\recursion\recursion\Recursion.txt" />
     <Content Include="FileSystem\fun\top-secret\do-not-enter\prize.exe" />
     <Content Include="FileSystem\README.txt" />
     <Content Include="FileSystem\website\about\about.txt" />
