@@ -1,0 +1,3 @@
+﻿This is a magic shell script... 
+
+You must execute to see what lies within.
