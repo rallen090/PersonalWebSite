@@ -23,13 +23,16 @@
             </div>
             <div class="navbar-collapse collapse">
 	            <ul class="nav navbar-nav">
-					<li>@Html.ActionLink("terminal", "Terminal", "Terminal")</li>
+		            <li>@Html.ActionLink("terminal", "Terminal", "Terminal")</li>
 		            <li>@Html.ActionLink("about", "About", "Home")</li>
 		            <li>@Html.ActionLink("blog", "Blog", "Home")</li>
 		            <li>@Html.ActionLink("projects", "Projects", "Home")</li>
 		            <li>@Html.ActionLink("contact", "Contact", "Home")</li>
 	            </ul>
-            </div>
+	            <ul class="nav navbar-nav" style="float: right">
+					<li><a href="https://github.com/rallen090/WebTerminal">view source on GitHub</a></li>
+				</ul>
+			</div>
         </div>
     </div>
     <div class="container body-content" style="bottom: 0">

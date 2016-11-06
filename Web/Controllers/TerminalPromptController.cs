@@ -36,7 +36,7 @@ namespace Web.Controllers
 
 			var passed = CodedStringComparer.SafeEquals(input.Response.ToLowerInvariant(), PromptAnswers.CakeAnswer);
 
-			var output = Enumerable.Range(0, 25).Select(s => "the cake is a lie").ToList();
+			var output = new List<string>();
 			output.Add(LinkGenerator.GenerateEmbeddedYouTubeFrame("https://www.youtube.com/embed/RVInBsib04M", startSeconds: 99));
 			output.Add("the cake is a lie");
 			var result = passed ? new CommandResult
