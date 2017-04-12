@@ -9,11 +9,11 @@ namespace Web
 	public class DirectoryManager
 	{
 		private const string FileSystemDirectoryName = "FileSystem";
-		private readonly Dictionary<string, DirectoryInfo> DirectoryMappings;
+		private readonly Dictionary<string, DirectoryInfo> _directoryMappings;
 
 		public DirectoryManager()
 		{
-			DirectoryMappings = Initialize();
+			_directoryMappings = Initialize();
 		}
 
 		private static Dictionary<string, DirectoryInfo> Initialize()
@@ -50,7 +50,7 @@ namespace Web
 		public bool TryChangeDirectory(string currentDirectory, string path, out DirectoryInfo directoryInfo)
 		{
 			// exact path
-			if (DirectoryMappings.TryGetValue(path, out directoryInfo))
+			if (_directoryMappings.TryGetValue(path, out directoryInfo))
 			{
 				return true;
 			}
@@ -76,7 +76,7 @@ namespace Web
 					}
 				}
 			}
-			if (DirectoryMappings.TryGetValue(string.Join("/", currentPathSections), out directoryInfo))
+			if (_directoryMappings.TryGetValue(string.Join("/", currentPathSections), out directoryInfo))
 			{
 				return true;
 			}
@@ -85,7 +85,7 @@ namespace Web
 			foreach (var dir in subDirectories)
 			{
 				var combinedPath = Path.Combine(path, dir).Replace('\\', '/');
-				if (DirectoryMappings.TryGetValue(combinedPath, out directoryInfo))
+				if (_directoryMappings.TryGetValue(combinedPath, out directoryInfo))
 				{
 					return true;
 				}
@@ -102,12 +102,12 @@ namespace Web
 
 		public DirectoryInfo GetDirectoryInfo(string currentDirectory)
 		{
-			return DirectoryMappings[currentDirectory];
+			return _directoryMappings[currentDirectory];
 		}
 
 		public bool TryGetDirectoryInfo(string currentDirectory, out DirectoryInfo directoryInfo)
 		{
-			return DirectoryMappings.TryGetValue(currentDirectory, out directoryInfo);
+			return _directoryMappings.TryGetValue(currentDirectory, out directoryInfo);
 		}
 
 		public FileInfo GetFileInDirectory(string currentDirectory, string filename)
