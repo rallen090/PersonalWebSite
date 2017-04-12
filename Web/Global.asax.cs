@@ -13,6 +13,7 @@ using Autofac;
 using Autofac.Core;
 using Autofac.Integration.Mvc;
 using Web.Controllers;
+using WebGrease.Css.Extensions;
 
 namespace Web
 {
@@ -31,17 +32,22 @@ namespace Web
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-	        // INFO FOR DATABASE:
-	        //using (var connection = new SqlConnection(
-	        //        "Server=tcp:YOUR_SERVER_NAME_HERE.database.windows.net,1433;Database=AdventureWorksLT;User ID=YOUR_LOGIN_NAME_HERE;Password=YOUR_PASSWORD_HERE;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
-	        //        ))
-	        //{
-	        //    connection.Open();
-	        //    Console.WriteLine("Connected successfully.");
+			// for clearing old files that Azure publish misses
+			//Directory
+			//	.EnumerateFiles(AppDomain.CurrentDomain.BaseDirectory, "about.txt", SearchOption.AllDirectories)
+			//	.ForEach(File.Delete);
 
-	        //    Console.WriteLine("Press any key to finish...");
-	        //    Console.ReadKey(true);
-	        //}
-        }
+			// INFO FOR DATABASE:
+			//using (var connection = new SqlConnection(
+			//        "Server=tcp:YOUR_SERVER_NAME_HERE.database.windows.net,1433;Database=AdventureWorksLT;User ID=YOUR_LOGIN_NAME_HERE;Password=YOUR_PASSWORD_HERE;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+			//        ))
+			//{
+			//    connection.Open();
+			//    Console.WriteLine("Connected successfully.");
+
+			//    Console.WriteLine("Press any key to finish...");
+			//    Console.ReadKey(true);
+			//}
+		}
     }
 }
