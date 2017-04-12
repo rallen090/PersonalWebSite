@@ -193,7 +193,6 @@
     <Content Include="FileSystem\website\about\about.txt" />
     <Content Include="FileSystem\website\blogs\blog.txt" />
     <Content Include="FileSystem\website\projects\project.txt" />
-    <Content Include="FileSystem\website\resume\resume.txt" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -206,6 +205,7 @@
     </Content>
     <Content Include="FileSystem\fun\portal\cake.exe" />
     <Content Include="FileSystem\fun\peppy\roll.sh" />
+    <Content Include="FileSystem\website\resume\Resume_April2017.pdf" />
     <None Include="Properties\PublishProfiles\RyanAllenSandbox.pubxml" />
     <None Include="Scripts\lib\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\lib\jquery-1.10.2.js" />

@@ -16,7 +16,7 @@ namespace Web.Controllers
 		{
 			var input = JsonConvert.DeserializeObject<PromptResponseInput>(inputJson);
 
-			var passed = CodedStringComparer.SafeEquals(input.Response.ToLowerInvariant(), PromptAnswers.ScrollAnswer);
+			var passed = CodedStringComparer.SafeEquals(input.Response.TrimEnd('.').ToLowerInvariant(), PromptAnswers.ScrollAnswer);
 
 			var result = passed 
 				? new CommandResult
@@ -34,7 +34,7 @@ namespace Web.Controllers
 		{
 			var input = JsonConvert.DeserializeObject<PromptResponseInput>(inputJson);
 
-			var passed = CodedStringComparer.SafeEquals(input.Response.ToLowerInvariant(), PromptAnswers.CakeAnswer);
+			var passed = CodedStringComparer.SafeEquals(input.Response.TrimEnd('.').ToLowerInvariant(), PromptAnswers.CakeAnswer);
 
 			var output = new List<string>();
 			output.Add(LinkGenerator.GenerateEmbeddedYouTubeFrame("https://www.youtube.com/embed/RVInBsib04M", startSeconds: 99));

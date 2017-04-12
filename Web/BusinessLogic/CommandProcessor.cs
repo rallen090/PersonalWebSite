@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -103,7 +104,7 @@ namespace Web
 					return new CommandResult
 					{
 						ResponseLines = new List<string> { "Exiting terminal and redirecting to web view..." },
-						RedirectUrl = new Uri(url ?? "ryanallen.io")
+						RedirectUrl = new Uri(url ?? "http://ryanallen.io")
 					};
 				default:
 					throw new InvalidOperationException($"Invalid {typeof(CommandType).FullName}: '{command.Type}'");
@@ -157,6 +158,15 @@ namespace Web
 				{
 					ResponseLines = new List<string> { $"Cannot read invalid filename '{file}'" },
 					Color = Color.Red
+				};
+			}
+
+			if (Path.GetExtension(file) == ".pdf")
+			{
+				var urlForFile = $"{HttpContext.Current.Request.Url.Scheme}://{HttpContext.Current.Request.Url.Authority}/FileSystem{currentPath}/{file}";
+				return new CommandResult
+				{
+					RedirectUrl = new Uri(urlForFile)
 				};
 			}
 
