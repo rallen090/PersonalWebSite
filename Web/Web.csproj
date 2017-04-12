@@ -190,9 +190,9 @@
     <Content Include="FileSystem\fun\recursion\recursion\Recursion.txt" />
     <Content Include="FileSystem\fun\top-secret\do-not-enter\prize.exe" />
     <Content Include="FileSystem\README.txt" />
-    <Content Include="FileSystem\website\about\about.txt" />
-    <Content Include="FileSystem\website\blogs\blog.txt" />
-    <Content Include="FileSystem\website\projects\project.txt" />
+    <Content Include="FileSystem\website\about\about.cshtml" />
+    <Content Include="FileSystem\website\blogs\blog1.cshtml" />
+    <Content Include="FileSystem\website\projects\projects.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -205,6 +205,8 @@
     </Content>
     <Content Include="FileSystem\fun\portal\cake.exe" />
     <Content Include="FileSystem\fun\peppy\roll.sh" />
+    <Content Include="FileSystem\website\contact\contact.cshtml" />
+    <Content Include="FileSystem\website\blogs\blog2.cshtml" />
     <Content Include="FileSystem\website\resume\Resume_April2017.pdf" />
     <None Include="Properties\PublishProfiles\RyanAllenSandbox.pubxml" />
     <None Include="Scripts\lib\jquery-1.10.2.intellisense.js" />
