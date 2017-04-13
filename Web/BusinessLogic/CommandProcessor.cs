@@ -275,7 +275,7 @@ namespace Web
 				case CommandType.Help:
 					return $"{CommandMap.Reverse[type]} - lists terminal commands";
 				case CommandType.Exit:
-					return $"{CommandMap.Reverse[type]} - exits the terminal";
+					return $"{CommandMap.Reverse[type]} - exits the terminal and redirects to the <a href='http://ryanallen.io/home'>web view</a>";
 				default:
 					return null;
 			}
