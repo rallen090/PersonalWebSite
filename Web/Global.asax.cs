@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -31,6 +32,12 @@ namespace Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+			// kick off initial heartbeat
+	        using (var client = new HttpClient())
+	        {
+		        client.GetAsync("http://ryanallen.io/heartbeat").Wait(TimeSpan.FromSeconds(30));
+	        }
 
 			// for clearing old files that Azure publish misses
 			//Directory
