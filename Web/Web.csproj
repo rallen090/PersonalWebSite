@@ -168,6 +168,7 @@
     <Compile Include="BusinessLogic\ThrottleHttpTrafficAttribute.cs" />
     <Compile Include="Controllers\HeartbeatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LogController.cs" />
     <Compile Include="Controllers\TerminalController.cs" />
     <Compile Include="Controllers\TerminalPromptController.cs" />
     <Compile Include="Global.asax.cs">
@@ -240,6 +241,7 @@
     <Content Include="Views\Terminal\Terminal.cshtml" />
     <Content Include="Views\Home\Blog.cshtml" />
     <Content Include="Views\Home\Projects.cshtml" />
+    <Content Include="Views\Log\Log.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
