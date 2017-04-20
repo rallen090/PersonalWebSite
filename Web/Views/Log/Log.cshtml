@@ -1,0 +1,18 @@
+﻿@using Web.Controllers
+@{
+    ViewBag.Title = "log";
+}
+<h2>Console</h2>
+<div style="white-space: pre-wrap;" id="logs"></div>
+
+<script type="text/javascript">
+	function poll() {
+		setTimeout(() => {
+			$.get('log/@ConsoleInterceptor.GetThreadKey()', function (data) {
+				$("#logs").html(data);
+				poll();
+			});
+		}, 1000);
+	};
+	poll();
+</script>
