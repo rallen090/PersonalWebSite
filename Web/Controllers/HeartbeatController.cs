@@ -55,5 +55,10 @@ namespace Web.Controllers
 			// ping heartbeat endpoint to schedule the next
 			await this._httpClient.GetAsync(new Uri(baseUrl, "heartbeat"), token);
 		}
+
+		private async Task PingHomeAsync()
+		{
+			await this._httpClient.GetAsync($@"http://ryanallen.io").ConfigureAwait(false);
+		}
 	}
 }

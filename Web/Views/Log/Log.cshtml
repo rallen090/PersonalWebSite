@@ -7,11 +7,11 @@
 
 <script type="text/javascript">
 	function poll() {
+		$.get('log/@ConsoleInterceptor.GetThreadKey()', function (data) {
+			$("#logs").html(data);
+		});
 		setTimeout(() => {
-			$.get('log/@ConsoleInterceptor.GetThreadKey()', function (data) {
-				$("#logs").html(data);
-				poll();
-			});
+			poll();
 		}, 1000);
 	};
 	poll();

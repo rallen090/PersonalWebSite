@@ -26,6 +26,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -178,6 +179,7 @@
     <Compile Include="Utilities\AsyncHelpers.cs" />
     <Compile Include="Utilities\CodedStringComparer.cs" />
     <Compile Include="Utilities\LinkGenerator.cs" />
+    <Compile Include="Utilities\RecurringAction.cs" />
     <Compile Include="Utilities\TwoWayMap.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -211,6 +213,7 @@
     <Content Include="FileSystem\website\contact\contact.cshtml" />
     <Content Include="FileSystem\website\blogs\blog2.cshtml" />
     <Content Include="FileSystem\website\resume\Resume_April2017.pdf" />
+    <Content Include="FileSystem\website\blogs\blog3.cshtml" />
     <None Include="Properties\PublishProfiles\RyanAllenSandbox.pubxml" />
     <None Include="Scripts\lib\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\lib\jquery-1.10.2.js" />

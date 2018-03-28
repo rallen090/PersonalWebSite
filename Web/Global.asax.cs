@@ -14,12 +14,15 @@ using Autofac;
 using Autofac.Core;
 using Autofac.Integration.Mvc;
 using Web.Controllers;
+using Web.Utilities;
 using WebGrease.Css.Extensions;
 
 namespace Web
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+	    private static RecurringAction _heartbeatAction;
+
         protected void Application_Start()
         {
 			var builder = new ContainerBuilder();
@@ -33,11 +36,17 @@ namespace Web
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-			// kick off initial heartbeat
-	        using (var client = new HttpClient())
-	        {
-		        client.GetAsync("http://ryanallen.io/heartbeat").Wait(TimeSpan.FromSeconds(30));
-	        }
+			_heartbeatAction = new RecurringAction(() => Task.Run(async () =>
+			{
+				using (var client = new HttpClient())
+				{
+					await client.GetAsync("http://localhost:62568/").ConfigureAwait(false);
+					await client.GetAsync("http://localhost:62568/about").ConfigureAwait(false);
+					await client.GetAsync("http://localhost:62568/blog").ConfigureAwait(false);
+					await client.GetAsync("http://localhost:62568/projects").ConfigureAwait(false);
+					await client.GetAsync("http://localhost:62568/contact").ConfigureAwait(false);
+				}
+			}), TimeSpan.FromSeconds(30));
 
 			// for clearing old files that Azure publish misses
 			//Directory
