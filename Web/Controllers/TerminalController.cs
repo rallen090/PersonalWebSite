@@ -1,8 +1,10 @@
 ﻿using System.Web.Mvc;
 using Newtonsoft.Json;
+using Web.Utilities;
 
 namespace Web.Controllers
 {
+	[Pingable]
 	public class TerminalController : Controller
 	{
 		private readonly CommandProcessor _commandProcessor;

@@ -176,9 +176,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\AppUrl.cs" />
     <Compile Include="Utilities\AsyncHelpers.cs" />
     <Compile Include="Utilities\CodedStringComparer.cs" />
+    <Compile Include="Utilities\CoreUtilities.cs" />
     <Compile Include="Utilities\LinkGenerator.cs" />
+    <Compile Include="Utilities\PingableAttribute.cs" />
     <Compile Include="Utilities\RecurringAction.cs" />
     <Compile Include="Utilities\TwoWayMap.cs" />
   </ItemGroup>

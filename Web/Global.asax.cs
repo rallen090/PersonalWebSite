@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -21,9 +22,19 @@ namespace Web
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+	    private static readonly IReadOnlyList<string> AppGetUrlPaths = CoreUtilities.FindInheritorsOf<Controller>()
+		    .Select(c => c.GetMethods())
+			.SelectMany(m => m)
+			// only HttpGet, pingable, and no arguments
+			.Where(m => m.GetCustomAttribute<HttpGetAttribute>() != null 
+				&& (m.GetCustomAttribute<PingableAttribute>() != null || m.DeclaringType?.GetCustomAttribute<PingableAttribute>() != null) 
+				&& m.GetParameters().Length == 0)
+			.Select(m => m.GetCustomAttribute<RouteAttribute>().Template)
+			.ToList();
+
 	    private static RecurringAction _heartbeatAction;
 
-        protected void Application_Start()
+	    protected void Application_Start()
         {
 			var builder = new ContainerBuilder();
 			AutofacConfig.Register(builder);
@@ -40,11 +51,11 @@ namespace Web
 			{
 				using (var client = new HttpClient())
 				{
-					await client.GetAsync("http://localhost:62568/").ConfigureAwait(false);
-					await client.GetAsync("http://localhost:62568/about").ConfigureAwait(false);
-					await client.GetAsync("http://localhost:62568/blog").ConfigureAwait(false);
-					await client.GetAsync("http://localhost:62568/projects").ConfigureAwait(false);
-					await client.GetAsync("http://localhost:62568/contact").ConfigureAwait(false);
+					foreach (var path in AppGetUrlPaths)
+					{
+						var url = $"{AppUrl.AppBasePath.Value}/{path}";
+						await client.GetAsync(url).ConfigureAwait(false);
+					}
 				}
 			}), TimeSpan.FromSeconds(30));
 
