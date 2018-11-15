@@ -215,8 +215,13 @@
     <Content Include="FileSystem\fun\peppy\roll.sh" />
     <Content Include="FileSystem\website\contact\contact.cshtml" />
     <Content Include="FileSystem\website\blogs\blog2.cshtml" />
-    <Content Include="FileSystem\website\resume\Resume_April2017.pdf" />
+    <Content Include="FileSystem\website\resume\Resume_April2017.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="FileSystem\website\blogs\blog3.cshtml" />
+    <Content Include="FileSystem\website\resume\Resume_November2018.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\PublishProfiles\RyanAllenSandbox.pubxml" />
     <None Include="Scripts\lib\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\lib\jquery-1.10.2.js" />
