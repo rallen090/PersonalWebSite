@@ -57,7 +57,7 @@ namespace Web
 						await client.GetAsync(url).ConfigureAwait(false);
 					}
 				}
-			}), TimeSpan.FromSeconds(30));
+			}), TimeSpan.FromMinutes(5));
 
 			// for clearing old files that Azure publish misses
 			//Directory
